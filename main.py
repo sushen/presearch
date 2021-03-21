@@ -11,7 +11,11 @@ from selenium import webdriver
 import time
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+import random
 
+
+all_keys = ["username","password","country","income","funny"]
 
 
 chrome_options = Options()
@@ -24,6 +28,8 @@ chrome_options.add_argument("user-data-dir=chrome-data")
 driver.implicitly_wait(25)  # seconds
 # What will be searched
 
+actions = ActionChains(driver) 
+
 # Time waiting for page
 waiting_for_page = 10
 
@@ -32,21 +38,55 @@ time.sleep(2)
 # print(input("Enter your Username and Password Menually then enter 1: "))
 driver.get("https://presearch.org")
 # print(input("Enter your Username and Password Menually then enter 1: "))
-driver.find_element_by_id("search").send_keys("username")
+driver.find_element_by_id("search").send_keys(all_keys[0])
 driver.find_element_by_id("search").send_keys(Keys.ENTER)
 # print(input("Enter your Username and Password Menually then enter 1: "))
 time.sleep(2)
+
+actions.send_keys(Keys.TAB * 10)
+search_key = all_keys[1]
+actions.send_keys(search_key)
+actions.send_keys(Keys.ENTER)
+actions.perform()
+time.sleep(2)
+prev_search_key = search_key
+for k in range(len(all_keys)-2):
+    for i in range(len(prev_search_key)):
+        actions.send_keys(Keys.BACK_SPACE)
+
+    time.sleep(2)
+    search_key = all_keys[k+2]
+    actions.send_keys(search_key)
+    actions.send_keys(Keys.ENTER)
+    actions.perform()
+    time.sleep(2)
+    prev_search_key = search_key
+
+# actions.send_keys(Keys.CONTROL + "a")
+# actions.send_keys(Keys.BACK_SPACE)
+# actions.send_keys(Keys.BACK_SPACE)
+# actions.send_keys(Keys.BACK_SPACE)
+# time.sleep(2)
+
+# actions.send_keys("country")
+# actions.send_keys(Keys.ENTER)
+# actions.perform()
+
+
+
+
+
 # driver.find_element_by_id("token-animation").click()
 # print(driver.find_element_by_xpath("//button[@type='submit']"))
 # driver.find_element_by_xpath("//input[@type='submit']").click();
 # print(input("Enter your Username and Password Menually then enter 1: "))
 
-driver.execute_script("window.open('https://engine.presearch.org');")
-driver.close()
+# driver.execute_script("window.open('https://engine.presearch.org');")
+# driver.close()
 # driver.get("https://presearch.org")
 # driver.find_element_by_id("search").send_keys("username")
 # driver.find_element_by_id("search").send_keys(Keys.ENTER)
 
-time.sleep(2)
+time.sleep(5)
 
 driver.quit()
