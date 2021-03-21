@@ -38,40 +38,32 @@ time.sleep(2)
 # print(input("Enter your Username and Password Menually then enter 1: "))
 driver.get("https://presearch.org")
 # print(input("Enter your Username and Password Menually then enter 1: "))
-driver.find_element_by_id("search").send_keys(all_keys[0])
+driver.find_element_by_id("search").send_keys(random.choice(all_keys))
 driver.find_element_by_id("search").send_keys(Keys.ENTER)
 # print(input("Enter your Username and Password Menually then enter 1: "))
 time.sleep(2)
 
 actions.send_keys(Keys.TAB * 10)
-search_key = all_keys[1]
+search_key = random.choice(all_keys)
 actions.send_keys(search_key)
 actions.send_keys(Keys.ENTER)
 actions.perform()
 time.sleep(2)
 prev_search_key = search_key
-for k in range(len(all_keys)-2):
+
+while True :
     for i in range(len(prev_search_key)):
         actions.send_keys(Keys.BACK_SPACE)
 
-    time.sleep(2)
-    search_key = all_keys[k+2]
+    time.sleep(4)
+    search_key = random.choice(all_keys)
+    print(search_key)
     actions.send_keys(search_key)
     actions.send_keys(Keys.ENTER)
     actions.perform()
-    time.sleep(2)
     prev_search_key = search_key
-
-# actions.send_keys(Keys.CONTROL + "a")
-# actions.send_keys(Keys.BACK_SPACE)
-# actions.send_keys(Keys.BACK_SPACE)
-# actions.send_keys(Keys.BACK_SPACE)
-# time.sleep(2)
-
-# actions.send_keys("country")
-# actions.send_keys(Keys.ENTER)
-# actions.perform()
-
+    time.sleep(4)
+   
 
 
 
