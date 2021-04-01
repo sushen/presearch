@@ -22,7 +22,7 @@ Autobot required latest version of Selenium to run.
 
 $ cd presearch
 $ pip3 install -r requirements.txt
-$ python3 main.py
+$ python main.py
 
 ##  Development
 Want to contribute? Great!
@@ -34,11 +34,13 @@ Autobot uses Pure python + Selenium framework for fast developing.
 First Tab:
 
 $ git clone https://github.com/sushen/presearch.git
+
 Second Tab:
-
 $ cd presearch
-(optional) Third:
 
+Third:
+Go to terminal run 
+python main.py
 
 ##  License
 MIT
