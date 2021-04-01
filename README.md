@@ -5,7 +5,7 @@ https://bit.ly/31F3gXX
 
 [![How to run Presearch](https://user-images.githubusercontent.com/4492335/113261369-34783980-92f1-11eb-9a83-6241b462b326.png)](https://www.youtube.com/watch?v=JLf6ORC22pQ)
 
-[![How Presearch Make for me.](https://www.youtube.com/watch?v=9LHn35q9bO4)](https://www.youtube.com/watch?v=9LHn35q9bO4)
+[![How Presearch Make for me.](https://i9.ytimg.com/vi/9LHn35q9bO4/mq2.jpg?sqp=CLDPloMG&rs=AOn4CLDLu-yvXTGRM8djRvJRtJeobf648A)](https://www.youtube.com/watch?v=9LHn35q9bO4)
 
 
 If above video is not helping  👆 
