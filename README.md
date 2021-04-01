@@ -36,10 +36,13 @@ First Tab:
 $ git clone https://github.com/sushen/presearch.git
 
 Second Tab:
+
 $ cd presearch
 
 Third:
+
 Go to terminal run 
+
 python main.py
 
 ##  License
