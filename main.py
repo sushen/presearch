@@ -14,7 +14,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import random
 
-
+#TODO: Make a Long List of keyword
 all_keys = ["username","password","country","income","funny"]
 
 
@@ -35,7 +35,9 @@ waiting_for_page = 10
 
 driver.get("https://engine.presearch.org")
 time.sleep(2)
-# print(input("Enter your Username and Password Menually then enter 1: "))
+
+#TODO: Make a login strong system in environment veriable
+print(input("Enter your Username and Password Menually then enter 1: "))
 driver.get("https://presearch.org")
 # print(input("Enter your Username and Password Menually then enter 1: "))
 driver.find_element_by_id("search").send_keys(random.choice(all_keys))
@@ -48,7 +50,7 @@ search_key = random.choice(all_keys)
 actions.send_keys(search_key)
 actions.send_keys(Keys.ENTER)
 actions.perform()
-time.sleep(2)
+time.sleep(20)
 prev_search_key = search_key
 
 while True :
@@ -64,7 +66,7 @@ while True :
     prev_search_key = search_key
     time.sleep(4)
    
-
+#TODO: Click the search resust to make it more human
 
 
 
