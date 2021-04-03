@@ -13,6 +13,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import random
+import pyautogui
 
 #TODO: Make a Long List of keyword
 all_keys = ["username","password","country","income","funny"]
