@@ -38,6 +38,7 @@ time.sleep(2)
 
 #TODO: Make a login strong system in environment veriable
 print(input("Enter your Username and Password Menually then enter 1: "))
+#TODO: We should bypass restricted account
 driver.get("https://presearch.org")
 # print(input("Enter your Username and Password Menually then enter 1: "))
 driver.find_element_by_id("search").send_keys(random.choice(all_keys))
