@@ -54,7 +54,7 @@ actions.perform()
 time.sleep(20)
 prev_search_key = search_key
 
-while True :
+while True:
     for i in range(len(prev_search_key)):
         actions.send_keys(Keys.BACK_SPACE)
 
@@ -65,6 +65,21 @@ while True :
     actions.send_keys(Keys.ENTER)
     actions.perform()
     prev_search_key = search_key
+    time.sleep(4)
+    pyautogui.press("Pgdn")
+    time.sleep(2)
+    pyautogui.press("Pgup")
+    time.sleep(1)
+    pyautogui.press('Tab', 25)
+    pyautogui.hotkey("Ctrl", "Enter")
+    time.sleep(5)
+    pyautogui.hotkey("Ctrl", "Tab")
+    time.sleep(3)
+    pyautogui.press("End")
+    time.sleep(5)
+    pyautogui.hotkey("Ctrl", "w")
+    time.sleep(1)
+    pyautogui.hotkey("Ctrl", "r")
     time.sleep(4)
    
 #TODO: Click the search resust to make it more human
