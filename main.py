@@ -1,5 +1,5 @@
 #   Copyright (c) 2021.
-#   Version : 1.0.2
+#   Version : 0.0.1
 #   Script Author : Sushen Biswas
 #
 #   Sushen Biswas Github Link : https://github.com/sushen
