@@ -78,13 +78,13 @@ while True:
 '''
 sel = Selector(text=driver.page_source)
 link = sel.xpath('//h3/a/@href').extract()[0]
-driver.execute_script("window.open(link);")
-window_name = driver.current_url[1]
-driver.switch_to.window(window_name=window_name)
 
-window_name = driver.window_handles[0]
-driver.switch_to.window(window_name=window_name)
+driver.execute_script("window.open()")
+driver.switch_to.window(driver.window_handles[1])
+driver.get(link)
+sleep(10)
 driver.close()
+driver.switch_to.window(driver.window_handles[0])
 '''
 
 # driver.find_element_by_id("token-animation").click()
