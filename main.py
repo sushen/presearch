@@ -16,7 +16,7 @@ import random
 
 # TODO: Make a Long List of keyword
 all_keys = ["username", "password", "country", "income", "funny"]
-random_time = [5, 7, 4, 8, 5, 9, 7, 4, 8, 10, 5, 7, 11, 6, 8]
+random_time = [6, 10, 20, 5, 15, 9, 25, 14, 9, 18, 23, 10]
 
 chrome_options = Options()
 chrome_options.add_argument("--user-data-dir=chrome-data")
