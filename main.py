@@ -25,7 +25,8 @@ chrome_options.add_argument("--user-data-dir=chrome-data")
 chrome_options.add_argument("--start-maximized")
 # chrome_options.add_argument("--incognito")
 
-driver = webdriver.Chrome(chrome_options=chrome_options)
+# driver = webdriver.Chrome("./chromedriver.exe", chrome_options=chrome_options)
+driver = webdriver.Chrome()
 chrome_options.add_argument("user-data-dir=chrome-data")
 driver.implicitly_wait(25)  # seconds
 # What will be searched
@@ -74,6 +75,10 @@ while True:
     time.sleep(4)
 
     # TODO: Click the search request to make it more human
+    driver.execute_script("window.scrollBy(0, 800);")
+    time.sleep(3)
+    driver.execute_script("window.scrollBy(0, -750);")
+    time.sleep(2)
 
     sel = Selector(text=driver.page_source)
     link = sel.xpath('//h3/a/@href').extract()[0]
@@ -83,6 +88,7 @@ while True:
     time.sleep(10)
     driver.close()
     driver.switch_to.window(driver.window_handles[0])
+    time.sleep(5)
 
 
 # driver.find_element_by_id("token-animation").click()
@@ -97,6 +103,5 @@ while True:
 # driver.find_element_by_id("search").send_keys(Keys.ENTER)
 
 time.sleep(5)
-
 driver.close()
 driver.quit()
