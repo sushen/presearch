@@ -73,19 +73,17 @@ while True:
     prev_search_key = search_key
     time.sleep(4)
 
-# TODO: Click the search request to make it more human
+    # TODO: Click the search request to make it more human
 
-'''
-sel = Selector(text=driver.page_source)
-link = sel.xpath('//h3/a/@href').extract()[0]
+    sel = Selector(text=driver.page_source)
+    link = sel.xpath('//h3/a/@href').extract()[0]
+    driver.execute_script("window.open()")
+    driver.switch_to.window(driver.window_handles[1])
+    driver.get(link)
+    time.sleep(10)
+    driver.close()
+    driver.switch_to.window(driver.window_handles[0])
 
-driver.execute_script("window.open()")
-driver.switch_to.window(driver.window_handles[1])
-driver.get(link)
-sleep(10)
-driver.close()
-driver.switch_to.window(driver.window_handles[0])
-'''
 
 # driver.find_element_by_id("token-animation").click()
 # print(driver.find_element_by_xpath("//button[@type='submit']"))
@@ -100,4 +98,5 @@ driver.switch_to.window(driver.window_handles[0])
 
 time.sleep(5)
 
+driver.close()
 driver.quit()
