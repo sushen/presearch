@@ -13,23 +13,21 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import random
-import pyautogui
 
-#TODO: Make a Long List of keyword
-all_keys = ["username","password","country","income","funny"]
-
+# TODO: 3 Make a Long List of keyword
+all_keys = ["username", "password", "country", "income", "funny"]
 
 chrome_options = Options()
 chrome_options.add_argument("--user-data-dir=chrome-data")
 chrome_options.add_argument("--start-maximized")
 # chrome_options.add_argument("--incognito")
 
-driver = webdriver.Chrome("./chromedriver.exe",chrome_options=chrome_options)
+driver = webdriver.Chrome("./chromedriver.exe", chrome_options=chrome_options)
 chrome_options.add_argument("user-data-dir=chrome-data")
 driver.implicitly_wait(25)  # seconds
 # What will be searched
 
-actions = ActionChains(driver) 
+actions = ActionChains(driver)
 
 # Time waiting for page
 waiting_for_page = 10
@@ -37,9 +35,8 @@ waiting_for_page = 10
 driver.get("https://engine.presearch.org")
 time.sleep(2)
 
-#TODO: Make a login strong system in environment veriable
+# TODO: 2 Make a login strong system in environment veriable
 print(input("Enter your Username and Password Menually then enter 1: "))
-#TODO: We should bypass restricted account
 driver.get("https://presearch.org")
 # print(input("Enter your Username and Password Menually then enter 1: "))
 driver.find_element_by_id("search").send_keys(random.choice(all_keys))
@@ -67,24 +64,8 @@ while True:
     actions.perform()
     prev_search_key = search_key
     time.sleep(4)
-    pyautogui.press("Pgdn")
-    time.sleep(2)
-    pyautogui.press("Pgup")
-    time.sleep(1)
-    pyautogui.press('Tab', 25)
-    pyautogui.hotkey("Ctrl", "Enter")
-    time.sleep(5)
-    pyautogui.hotkey("Ctrl", "Tab")
-    time.sleep(3)
-    pyautogui.press("End")
-    time.sleep(5)
-    pyautogui.hotkey("Ctrl", "w")
-    time.sleep(1)
-    pyautogui.hotkey("Ctrl", "r")
-    time.sleep(4)
-   
-#TODO: Click the search resust to make it more human
 
+# TODO: 1 Click the search resust to make it more human
 
 
 # driver.find_element_by_id("token-animation").click()
@@ -100,4 +81,4 @@ while True:
 
 time.sleep(5)
 
-driver.quit()
+# driver.quit()
