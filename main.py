@@ -9,10 +9,18 @@
 
 from selenium import webdriver
 import time
+
+
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import random
+
+# for MacOS
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support.ui import Select
 
 # TODO: 3 Make a Long List of keyword
 all_keys = ["username", "password", "country", "income", "funny"]
@@ -22,7 +30,23 @@ chrome_options.add_argument("--user-data-dir=chrome-data")
 chrome_options.add_argument("--start-maximized")
 # chrome_options.add_argument("--incognito")
 
-driver = webdriver.Chrome("./chromedriver.exe", chrome_options=chrome_options)
+'''
+TODO:
+    - different module for cross platform
+    - 
+'''
+
+
+def driver_for_mac():
+    return webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
+
+
+def driver_for_windows():
+    return webdriver.Chrome("./chromedriver.exe", chrome_options=chrome_options)
+
+
+# driver = driver_for_windows()
+driver = driver_for_mac()
 chrome_options.add_argument("user-data-dir=chrome-data")
 driver.implicitly_wait(25)  # seconds
 # What will be searched
