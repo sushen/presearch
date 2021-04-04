@@ -56,15 +56,16 @@ prev_search_key = search_key
 while True:
     for i in range(len(prev_search_key)):
         actions.send_keys(Keys.BACK_SPACE)
-    for v in range(len(random_time)):
-        time.sleep(random_time[v])
-        search_key = random.choice(all_keys)
-        print(search_key)
-        actions.send_keys(search_key)
-        actions.send_keys(Keys.ENTER)
-        actions.perform()
-        prev_search_key = search_key
-        time.sleep(random_time[v])
+        while True:
+            for v in range(len(random_time)):
+                actions.send_keys(Keys.BACK_SPACE * 20)
+                search_key = random.choice(all_keys)
+                print(search_key)
+                actions.send_keys(search_key)
+                actions.send_keys(Keys.ENTER)
+                actions.perform()
+                prev_search_key = search_key
+                time.sleep(random_time[v])
 
 # TODO: Click the search resust to make it more human
 
