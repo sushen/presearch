@@ -18,7 +18,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from parsel import Selector
 
 # TODO: Make a Long List of keyword
-all_keys = ["username", "password", "country", "income", "funny"]
+all_keys = ["python for kinds", "american legends", "most citizen in a country", "funny videos"]
 
 chrome_options = Options()
 chrome_options.add_argument("--user-data-dir=chrome-data")
@@ -46,10 +46,6 @@ driver.get("https://presearch.org")
 driver.find_element_by_id("search").send_keys(random.choice(all_keys))
 driver.find_element_by_id("search").send_keys(Keys.ENTER)
 
-# search_query = driver.find_element_by_name('q')
-# search_query.send_keys('selenium new tab python')
-# search_query.send_keys(Keys.RETURN)
-
 # print(input("Enter your Username and Password Manually then enter 1: "))
 time.sleep(2)
 
@@ -76,9 +72,9 @@ while True:
 
     # TODO: Click the search request to make it more human
     driver.execute_script("window.scrollBy(0, 800);")
-    time.sleep(3)
+    time.sleep(random.randint(1, 5))
     driver.execute_script("window.scrollBy(0, -750);")
-    time.sleep(2)
+    time.sleep(random.randint(1, 5))
 
     sel = Selector(text=driver.page_source)
     link = sel.xpath('//h3/a/@href').extract()[0]
@@ -88,19 +84,8 @@ while True:
     time.sleep(10)
     driver.close()
     driver.switch_to.window(driver.window_handles[0])
-    time.sleep(5)
+    time.sleep(random.randint(5, 35))
 
-
-# driver.find_element_by_id("token-animation").click()
-# print(driver.find_element_by_xpath("//button[@type='submit']"))
-# driver.find_element_by_xpath("//input[@type='submit']").click();
-# print(input("Enter your Username and Password Menually then enter 1: "))
-
-# driver.execute_script("window.open('https://engine.presearch.org');")
-# driver.close()
-# driver.get("https://presearch.org")
-# driver.find_element_by_id("search").send_keys("username")
-# driver.find_element_by_id("search").send_keys(Keys.ENTER)
 
 time.sleep(5)
 driver.close()
