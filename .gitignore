@@ -1,2 +1,4 @@
 /chrome-data/
 /venv/
+.env
+

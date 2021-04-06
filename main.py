@@ -13,6 +13,15 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import random
+from dotenv import load_dotenv,find_dotenv
+import os
+load_dotenv(find_dotenv()) 
+
+# UserCredintials(EmailandPassword)
+# make an .env file With your Credintials
+Email = os.environ.get("EMAIL")
+Password = os.environ.get("PASSWORD")
+
 
 #TODO: Make a Long List of keyword
 all_keys = ["username","password","country","income","funny"]
@@ -22,27 +31,36 @@ chrome_options = Options()
 chrome_options.add_argument("--user-data-dir=chrome-data")
 chrome_options.add_argument("--start-maximized")
 # chrome_options.add_argument("--incognito")
-
 driver = webdriver.Chrome("./chromedriver.exe",chrome_options=chrome_options)
+# firefox browser driver added
+# driver=webdriver.Firefox(executable_path='./geckodriver.exe')
+
 chrome_options.add_argument("user-data-dir=chrome-data")
 driver.implicitly_wait(25)  # seconds
+
+
+
 # What will be searched
 
 actions = ActionChains(driver) 
 
 # Time waiting for page
+
 waiting_for_page = 10
 
 driver.get("https://engine.presearch.org")
 time.sleep(2)
 
 #TODO: Make a login strong system in environment veriable
+
 print(input("Enter your Username and Password Menually then enter 1: "))
 driver.get("https://presearch.org")
-# print(input("Enter your Username and Password Menually then enter 1: "))
+print(input("Enter your Username and Password Menually then enter 1: "))
+
 driver.find_element_by_id("search").send_keys(random.choice(all_keys))
 driver.find_element_by_id("search").send_keys(Keys.ENTER)
-# print(input("Enter your Username and Password Menually then enter 1: "))
+
+ 
 time.sleep(2)
 
 actions.send_keys(Keys.TAB * 10)
