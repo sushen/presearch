@@ -94,19 +94,6 @@ while True:
     driver.switch_to.window(driver.window_handles[0])
     time.sleep(random.randint(5, 35))
 
-    '''
-    # Using parsel library
-    sel = Selector(text=driver.page_source)
-    link = sel.xpath('//h3/a/@href').extract()[0]
-    driver.execute_script("window.open()")
-    driver.switch_to.window(driver.window_handles[1])
-    driver.get(link)
-    time.sleep(10)
-    driver.close()
-    driver.switch_to.window(driver.window_handles[0])
-    time.sleep(random.randint(5, 35))
-    '''
-
 
 time.sleep(5)
 driver.close()
