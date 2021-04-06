@@ -25,26 +25,27 @@ sleep(3)
 driver.execute_script("window.scrollBy(0, -750);")
 sleep(2)
 
+links = driver.find_elements_by_xpath('//h3/a[@href]')
+link = driver.find_elements_by_xpath('//h3/a[@href]')[0]
+url = link.get_attribute('href')
 
-sel = Selector(text=driver.page_source)
-link = sel.xpath('//h3/a/@href').extract()[0]
-
-driver.execute_script("window.open()")
-driver.switch_to.window(driver.window_handles[1])
-driver.get(link)
+driver.execute_script("window.open('about:blank', 'tab2');")
+driver.switch_to.window("tab2")
+driver.get(url)
 sleep(10)
 driver.close()
 driver.switch_to.window(driver.window_handles[0])
 
 
 '''
-driver.execute_script("window.open('text_field').value+='" + link + "'")
-window_name = driver.window_handles[1]
-driver.switch_to.window(window_name=window_name)
-sleep(5)
+sel = Selector(text=driver.page_source)
+link = sel.xpath('//h3/a/@href').extract()[0]
+driver.execute_script("window.open()")
+driver.switch_to.window(driver.window_handles[1])
+driver.get(link)
+sleep(10)
 driver.close()
-window_name = driver.window_handles[0]
-driver.switch_to.window(window_name=window_name)
+driver.switch_to.window(driver.window_handles[0])
 '''
 
 sleep(20)

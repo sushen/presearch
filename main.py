@@ -18,7 +18,13 @@ from selenium.webdriver.common.action_chains import ActionChains
 from parsel import Selector
 
 # TODO: Make a Long List of keyword
-all_keys = ["python for kinds", "american legends", "most citizen in a country", "funny videos"]
+all_keys = ["python for kinds", "american legends", "wikipedia people ranking in a country", "funny videos", "machine learning"
+            "facebook api", "twitter api", "instagram api", "linkedin api", "github", "github api", "git lab",
+            "git lab api", "most popular programming language", "socket programming", "socket programming python"
+            "data science", "python data science", "docker", "nodejs", "advanced javascript", "django ajax",
+            "artificial intelligence", "best movies list 2020", "top movie ratting imdb", "harry potter",
+            "game of thrones", "michael jackson", "abraham lincoln vampire hunter", "hide and seek", "the rock"]
+
 
 chrome_options = Options()
 chrome_options.add_argument("--user-data-dir=chrome-data")
@@ -70,12 +76,26 @@ while True:
     prev_search_key = search_key
     time.sleep(4)
 
-    # TODO: Click the search request to make it more human
+    # Scrolling up-down
     driver.execute_script("window.scrollBy(0, 800);")
     time.sleep(random.randint(1, 5))
-    driver.execute_script("window.scrollBy(0, -750);")
+    driver.execute_script("window.scrollBy(0, -800);")
     time.sleep(random.randint(1, 5))
 
+    # TODO: Click the search request to make it more human
+    links = driver.find_elements_by_xpath('//h3/a[@href]')
+    link = driver.find_elements_by_xpath('//h3/a[@href]')[0]
+    url = link.get_attribute('href')
+    driver.execute_script("window.open('about:blank', 'tab2');")
+    driver.switch_to.window("tab2")
+    driver.get(url)
+    time.sleep(10)
+    driver.close()
+    driver.switch_to.window(driver.window_handles[0])
+    time.sleep(random.randint(5, 35))
+
+    '''
+    # Using parsel library
     sel = Selector(text=driver.page_source)
     link = sel.xpath('//h3/a/@href').extract()[0]
     driver.execute_script("window.open()")
@@ -85,6 +105,7 @@ while True:
     driver.close()
     driver.switch_to.window(driver.window_handles[0])
     time.sleep(random.randint(5, 35))
+    '''
 
 
 time.sleep(5)
