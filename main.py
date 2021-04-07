@@ -1,4 +1,5 @@
 #   Copyright (c) 2021.
+
 #   Version : 1.0.2
 #   Script Author   : Sushen Biswas
 #                   : Abdullah Al Mohin Jaki
@@ -17,6 +18,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from parsel import Selector
 
+
 # TODO: Make a Long List of keyword
 all_keys = ["python for kinds", "american legends", "wikipedia people ranking in a country", "funny videos", "machine learning"
             "facebook api", "twitter api", "instagram api", "linkedin api", "github", "github api", "git lab",
@@ -26,13 +28,16 @@ all_keys = ["python for kinds", "american legends", "wikipedia people ranking in
             "game of thrones", "michael jackson", "abraham lincoln vampire hunter", "hide and seek", "the rock"]
 
 
+
 chrome_options = Options()
 chrome_options.add_argument("--user-data-dir=chrome-data")
 chrome_options.add_argument("--start-maximized")
 # chrome_options.add_argument("--incognito")
 
-# driver = webdriver.Chrome("./chromedriver.exe", chrome_options=chrome_options)
+
+driver = webdriver.Chrome("./chromedriver.exe", chrome_options=chrome_options)
 driver = webdriver.Chrome()
+
 chrome_options.add_argument("user-data-dir=chrome-data")
 driver.implicitly_wait(25)  # seconds
 # What will be searched
@@ -45,7 +50,9 @@ waiting_for_page = 10
 driver.get("https://engine.presearch.org")
 time.sleep(2)
 
+
 # TODO: Make a login strong system in environment veriable
+
 print(input("Enter your Username and Password Menually then enter 1: "))
 driver.get("https://presearch.org")
 # print(input("Enter your Username and Password Menually then enter 1: "))
@@ -76,6 +83,10 @@ while True:
     prev_search_key = search_key
     time.sleep(4)
 
+
+# TODO: 1 Click the search resust to make it more human
+
+
     # Scrolling up-down
     driver.execute_script("window.scrollBy(0, 800);")
     time.sleep(random.randint(1, 5))
@@ -96,5 +107,7 @@ while True:
 
 
 time.sleep(5)
+ 
 driver.close()
 driver.quit()
+
